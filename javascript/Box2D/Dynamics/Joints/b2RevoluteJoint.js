@@ -292,6 +292,7 @@ b2RevoluteJoint.prototype.SolveVelocityConstraints = function (step) {
 			var motorForce = -step.inv_dt * this.m_motorMass * motorCdot;
 			var oldMotorForce = this.m_motorForce;
 			this.m_motorForce = b2Math.b2Clamp(this.m_motorForce + motorForce, -this.m_maxMotorTorque, this.m_maxMotorTorque);
+
 			motorForce = this.m_motorForce - oldMotorForce;
 			
 			b1.m_angularVelocity -= b1.m_invI * step.dt * motorForce;

@@ -23,7 +23,7 @@ demos.crank.initWorld = function(world) {
 	var rjd = new b2RevoluteJointDef();
 	rjd.Initialize(prevBody , body , new b2Vec2(500/2,235));
 	rjd.motorSpeed = - 1.0 * Math.PI;
-	rjd.motorTorque = 5000000.0;
+	rjd.maxMotorTorque = 5000000000.0;
 	rjd.enableMotor = true;
 	world.CreateJoint(rjd);
 
@@ -41,7 +41,6 @@ demos.crank.initWorld = function(world) {
 	world.CreateJoint(rjd);
 
 	prevBody = body;
-
 	// Define piston
 	sd.SetAsBox(20, 20);
 	bd.position.Set(500/2, 95);
@@ -52,6 +51,7 @@ demos.crank.initWorld = function(world) {
 	rjd.Initialize(prevBody , body , new b2Vec2(500/2 ,95));
 	world.CreateJoint(rjd);
 
+	
 	var pjd = new b2PrismaticJointDef();
 	pjd.Initialize(ground , body , new b2Vec2(500/2 ,95) ,new b2Vec2(0.0 ,1.0));
 	pjd.motorSpeed = 0.0; // joint friction
