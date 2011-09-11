@@ -81,3 +81,34 @@ b2Vec2.prototype.Normalize = function () {
 b2Vec2.prototype.IsValid = function () {
 		return b2Math.b2IsValid(this.x) && b2Math.b2IsValid(this.y);
 	}
+
+extend(b2Vec2.prototype ,{
+	clone:function(){return new b2Vec2(this.x,this.y);},
+	set:function(v){this.x=v.x;this.y=v.y;return this;},
+	add:function(v){this.x+=v.x;this.y+=v.y;return this;},
+	sub:function(v){this.x-=v.x;this.y-=v.y;return this;},
+	dot:function(v){return this.x*v.x+this.y*v.y;},
+	projection:function(v){return v.clone().norm().scale(this.clone().dot(v)/v.length());},
+	length:function(){return Math.sqrt(this.x*this.x+this.y*this.y);},
+	distance:function(v){var xx=this.x-v.x;var yy=this.y-v.y;return Math.sqrt(xx*xx+yy*yy);},
+	distance2:function(v){var xx=this.x-v.x;var yy=this.y-v.y;return xx*xx+yy*yy;},
+	theta:function(){return Math.atan2(this.y,this.x);},
+	thetaTo:function(vec){var v=this.clone().norm();var w=vec.clone().norm();return Math.acos(v.dot(w));},
+	thetaTo2:function(vec){return Math.atan2(vec.y,vec.x)-Math.atan2(this.y,this.x);},
+	norm:function(){var len=this.length();if(len==0)return this;this.x/=len;this.y/=len;return this;},
+	rotate:function(a){
+		var ca=Math.cos(a);var sa=Math.sin(a);
+		with(this){var rx=x*ca-y*sa;var ry=x*sa+y*ca;x=rx;y=ry;}
+		return this;
+	},
+	invert:function(){
+		this.x=-this.x;
+		this.y=-this.y;
+		return this;
+	},
+	scale:function(s){
+		this.x*=s;this.y*=s;return this;
+	},
+	x:null,
+	y:null
+});
