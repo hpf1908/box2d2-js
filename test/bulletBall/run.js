@@ -114,7 +114,7 @@ function createBox(world, x, y, width, height, fixed) {
     body.w = width;
     body.h = height;
     shapeDef.restitution = .8;
-    if (!fixed) boxSd.density = 1;
+    if (!fixed) shapeDef.density = 1;
     shapeDef.friction = 1.0;
     body.CreateShape(shapeDef);
     body.SetMassFromShapes();
