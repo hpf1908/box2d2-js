@@ -5,5 +5,5 @@ fork from: https://github.com/jwagner/box2d2-js.git
 
 1.整理了目录结构
 2.扩充了b2vec结构
-3.内附两个demo
+3.实现了官方demo
 
