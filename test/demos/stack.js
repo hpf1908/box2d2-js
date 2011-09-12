@@ -22,6 +22,6 @@ demos.stack.initWorld = function(world) {
 		createBody(world , bdDef , sd);
 	}
 }
-demos.InitWorlds.push(demos.stack.initWorld);
+demos.InitWorlds.push(demos.stack);
 
 

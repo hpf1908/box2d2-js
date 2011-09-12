@@ -67,4 +67,4 @@ demos.crank.initWorld = function(world) {
 	body.CreateShape(sd);
 	body.SetMassFromShapes();
 }
-demos.InitWorlds.push(demos.crank.initWorld);
+demos.InitWorlds.push(demos.crank);

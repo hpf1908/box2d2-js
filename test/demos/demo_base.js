@@ -1,19 +1,19 @@
 function createWorld() {
 	var worldAABB = new b2AABB();
-	worldAABB.lowerBound.Set(-10000.0, -10000.0);
-	worldAABB.upperBound.Set(10000.0, 10000.0);
+	worldAABB.lowerBound.Set(-100000.0, -100000.0);
+	worldAABB.upperBound.Set(100000.0, 100000.0);
 	var gravity = new b2Vec2(0, 300);
 	var doSleep = true;
 	var world = new b2World(worldAABB, gravity, doSleep);
 	createGround(world);
 	createBox(world, 0, 125, 10, 250);
-	createBox(world, 500, 125, 10, 250);
+	createBox(world, 700, 125, 10, 250);
 	return world;
 }
 
 function createGround(world) {
     var bodyDef = new b2BodyDef();
-    bodyDef.position.Set(-500, 340);
+    bodyDef.position.Set(0, 340);
     var body = world.CreateBody(bodyDef);
     var shapeDef = new b2PolygonDef();
     shapeDef.SetAsBox(1000, 50);

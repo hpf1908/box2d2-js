@@ -42,6 +42,6 @@ demos.compound.initWorld = function(world) {
 		demos.compound.createCompoundBall(world, 350 + 3 * Math.random(), 45 * i);
 	}
 }
-demos.InitWorlds.push(demos.compound.initWorld);
+demos.InitWorlds.push(demos.compound);
 
 

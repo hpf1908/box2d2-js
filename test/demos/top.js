@@ -43,6 +43,6 @@ demos.top.initWorld = function(world) {
 	world.CreateJoint(jointDef);
 
 };
-demos.InitWorlds.push(demos.top.initWorld);
+demos.InitWorlds.push(demos.top);
 
 

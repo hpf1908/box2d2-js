@@ -12,7 +12,7 @@ function setupWorld(did) {
 	initId += did;
 	initId %= demos.InitWorlds.length;
 	if (initId < 0) initId = demos.InitWorlds.length + initId;
-	demos.InitWorlds[initId](world);
+	demos.InitWorlds[initId].initWorld(world);
 }
 function setupNextWorld() { setupWorld(1); }
 function setupPrevWorld() { setupWorld(-1); }
@@ -26,7 +26,7 @@ function step(cnt) {
 	setTimeout('step(' + (cnt || 0) + ')', 10);
 }
 Event.observe(window, 'load', function() {
-	setupWorld(2);
+	setupWorld(0);
 	ctx = $('canvas').getContext('2d');
 	var canvasElm = $('canvas');
 	canvasWidth = parseInt(canvasElm.width);
@@ -44,6 +44,10 @@ Event.observe(window, 'load', function() {
 		if (e.preventDefault) e.preventDefault();
 		setupPrevWorld();
 		return false;
+	});
+
+	Event.observe(document, "keydown", function(event) {
+		demos.InitWorlds[initId].controls(event.keyCode);
 	});
 	step();
 });

@@ -12,6 +12,6 @@ demos.pendulum.initWorld = function(world) {
 	jointDef.Initialize(ground , createBall(world, 250 - 40 - L, 200 - L) , new b2Vec2(250 - 40,200 - L));
 	world.CreateJoint(jointDef);
 }
-demos.InitWorlds.push(demos.pendulum.initWorld);
+demos.InitWorlds.push(demos.pendulum);
 
 
