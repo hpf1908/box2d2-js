@@ -1,9 +1,9 @@
-box2dAs 转为 javascript
+box2d As 2.0.1 port to javascript
 
-Automatic port of box2dAS 2.0 to javascript
-fork from: https://github.com/jwagner/box2d2-js.git
+success run demo :
 
-1.整理了目录结构
-2.扩充了b2vec结构
-3.内附两个demo
+1.bulletBall
+2.explosion    
+3.demos        
 
+notice: the source is unstalble now , any question please contact hpf1908@gmial.com

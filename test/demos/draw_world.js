@@ -3,7 +3,8 @@ function drawWorld(world, context) {
 		drawJoint(j, context);
 	}
 	for (var b = world.m_bodyList; b; b = b.m_next) {
-		for (var s = b.GetShapeList(); s != null; s = s.GetNext()) {
+		var count = 0;
+		for (var s = b.m_shapeList; s != null ; s = s.m_next) {		
 			drawShape(b , s, context);
 		}
 	}
@@ -53,7 +54,7 @@ function drawShape(body , shape, context) {
 	case b2Shape.e_circleShape:
 		{
 			var circle = shape;
-			var pos = body.m_xf.position;
+			var pos = new b2Vec2(body.m_xf.position.x + circle.m_localPosition.x , body.m_xf.position.y + circle.m_localPosition.y);
 			var r = circle.m_radius;
 			var segments = 16.0;
 			var theta = 0.0;
@@ -80,7 +81,6 @@ function drawShape(body , shape, context) {
 			var pos = body.m_xf.position , R = body.m_xf.R;
             var tV = b2Math.AddVV(pos, b2Math.b2MulMV(R , poly.m_vertices[0]));
             context.moveTo(tV.x, tV.y);
-			
             for (var i = 0; i < poly.m_vertexCount; i++) {
                 var v = b2Math.AddVV(pos, b2Math.b2MulMV(R , poly.m_vertices[i]));
                 context.lineTo(v.x, v.y);

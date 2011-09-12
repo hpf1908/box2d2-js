@@ -893,9 +893,6 @@ b2BroadPhase.prototype.TestOverlap = function (b, p) {
 		{
 			var bounds = this.m_bounds[axis];
 			
-			
-			
-			
 			var bound = bounds[p.upperBounds[axis]];
 			if (b.lowerValues[axis] > bound.value)
 				return false;

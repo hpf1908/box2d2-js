@@ -23,6 +23,8 @@ b2ContactManager.prototype.m_destroyImmediate =  null;
 b2ContactManager.prototype.PairAdded = function (proxyUserData1, proxyUserData2) {
 		var shape1 = proxyUserData1;
 		var shape2 = proxyUserData2;
+
+		if(!shape1 || !shape2) return false;
 		
 		var body1 = shape1.m_body;
 		var body2 = shape2.m_body;

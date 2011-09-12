@@ -52,7 +52,12 @@ function createBox(world, x, y, width, height, fixed) {
 
 function createBody(world, bd, sd ) {
 	var body = world.CreateBody(bd);
-    body.CreateShape(sd);
+	if(Object.prototype.toString.apply(sd) === '[object Array]') {
+		for(var i = 0 ; i <sd.length; i ++) {
+			body.CreateShape(sd[i]);
+		}
+	}else
+		body.CreateShape(sd);
     body.SetMassFromShapes();
 	return body;
 }

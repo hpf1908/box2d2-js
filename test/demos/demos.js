@@ -26,7 +26,7 @@ function step(cnt) {
 	setTimeout('step(' + (cnt || 0) + ')', 10);
 }
 Event.observe(window, 'load', function() {
-	setupWorld();
+	setupWorld(2);
 	ctx = $('canvas').getContext('2d');
 	var canvasElm = $('canvas');
 	canvasWidth = parseInt(canvasElm.width);

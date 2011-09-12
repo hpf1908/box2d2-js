@@ -156,11 +156,7 @@ b2Body.prototype.CreateShape = function (def) {
 		++this.m_shapeCount;
 		
 		s.m_body = this;
-		
-		
 		s.CreateProxy(this.m_world.m_broadPhase, this.m_xf);
-		
-		
 		s.UpdateSweepRadius(this.m_sweep.localCenter);
 		
 		return s;
@@ -202,7 +198,6 @@ b2Body.prototype.DestroyShape = function (s) {
 		
 		s.m_body = null;
 		s.m_next = null;
-		
 		--this.m_shapeCount;
 		
 		b2Shape.Destroy(s, this.m_world.m_blockAllocator);
